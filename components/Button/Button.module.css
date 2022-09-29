@@ -1,0 +1,16 @@
+.button {
+    display: inline-block;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: bold;
+    transition: all 0.25s ease-in-out;
+    color: #162050;
+}
+
+.button:hover {
+    cursor: pointer;
+    scale: 1.025;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
+}

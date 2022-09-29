@@ -1,0 +1,57 @@
+.container {
+    background-color: #364fc7;
+    height: 100vh;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    min-height: 50%;
+    background-color: #1f2d9b;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.35);
+}
+
+.heroText {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 6.4rem;
+}
+
+.spider {
+    fill: #DDDFE7;
+}
+.slogan {
+    font-size: 3.6rem;
+    color: #DDDFE7;
+}
+
+.inputFied {
+    font-size: 3.2rem;
+    width: 35rem;
+    height: 6rem;
+}
+
+.error {
+    font-size: 1.8rem;
+    color: red;
+}
+
+.button {
+    font-size: 2.8rem;
+    letter-spacing: -0.1rem;
+}

@@ -1,0 +1,13 @@
+.inputField {
+    display: inline-block;
+    border: none;
+    border-radius: 0.5rem;
+    width: 20rem;
+    height: 2rem;
+    padding: 0.5rem;
+    color: #162050;
+}
+
+.inputField:focus {
+    outline: none;
+}

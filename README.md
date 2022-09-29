@@ -32,3 +32,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## TODO
+- [] Change chat by clicking user in sidebar
+
+- [] Add Hash for authentification
+
+- [] Add unique ID to chat
+
+- [] Add Sections with warn sign (for example: "Logout to delete your user and messages")
+
+- [] Create Component for Messages
+
+- [] Create Component for Contact on Sidebar
+
+- [] Change Design of Chat
+
+- [] uncommend the code in line 33-35 in pages/index.tsx

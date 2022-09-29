@@ -1,0 +1,23 @@
+.container {
+    background-color: #364fc7;
+    height: 100vh;
+}
+
+.content {
+    margin: 0 auto;
+    width: 80rem;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.text {
+    font-size: 6.4rem;
+    color: red;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 3.6rem;
+}
