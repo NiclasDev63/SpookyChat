@@ -1,0 +1,28 @@
+.message {
+    margin: 2rem 3rem;
+    max-width: calc(55% - 3rem);
+    background-color: #4d66d9;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    padding: 1rem;
+}
+
+.timestamp {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.received {
+    margin-right: auto;
+}
+
+.send {
+    margin-left: auto;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 0;
+}
+
+.content {
+    font-size: 2.4rem;
+    word-break: break-all;
+}

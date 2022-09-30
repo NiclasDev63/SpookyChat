@@ -4,11 +4,11 @@ import UserContext from "../../context/UserContext";
 import styles from "./AuthWrapper.module.css";
 import Link from "next/link";
 
-interface authProps {
+interface AuthProps {
   children: React.ReactNode;
 }
 
-const AuthWrapper: React.FC<authProps> = ({ children }) => {
+const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
   const [userNameExists, setUserNameExists] = useState<boolean>(false);
   const [userIsAuthenticated, setUserIsAuthenticated] =
     useState<boolean>(false);

@@ -1,7 +1,6 @@
 import styles from "./InputField.module.css";
-import { AppProps } from "next/app";
 
-export interface InputFieldProps {
+interface InputFieldProps {
   className?: string;
   placeholder?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

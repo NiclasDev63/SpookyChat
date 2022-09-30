@@ -35,18 +35,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 ## TODO
-- [] Change chat by clicking user in sidebar
 
-- [] Add Hash for authentification
+- Only start conversation with existing users
 
-- [] Add unique ID to chat
+- Add functionality to start a conversation with a new user
 
-- [] Add Sections with warn sign (for example: "Logout to delete your user and messages")
 
-- [] Create Component for Messages
+- correctly delete all collections by user when loggin out (nodejs)
 
-- [] Create Component for Contact on Sidebar
+- Add functionality to logout a button
 
-- [] Change Design of Chat
+- Add Hash for authentification
 
-- [] uncommend the code in line 33-35 in pages/index.tsx
+- Add Sections with warn sign (for example: "Logout to delete your user and messages")
+
+- (Change Design of Chat)
+
+- uncommend the code in line 33-35 in pages/index.tsx
+
+- add end to end encryption
