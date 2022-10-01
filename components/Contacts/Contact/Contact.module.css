@@ -40,6 +40,7 @@
 }
 
 .message {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -52,5 +53,13 @@
 .sendIcon {
     transform: translateY(25%);
     font-size: 1.4rem;
+}
+
+.newMessage {
+    margin-left: auto;
+    background-color: green;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
 }
 

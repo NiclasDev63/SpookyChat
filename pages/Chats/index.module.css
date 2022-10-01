@@ -17,12 +17,6 @@
 .chatContainer {
     position: relative;
     display: flex;
-    /* background-color: #DDDFE7; */
-    /* margin: 0 auto;
-    flex-shrink: 1;
-    flex-grow: 1;
-    top: 50%;
-    transform: translateY(-50%); */
     width: 140rem;
     height: 80rem;
     border-radius: 1rem;

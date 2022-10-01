@@ -5,10 +5,6 @@ import db from "../../utils/firebase/Firebase";
 import { useContext, useRef, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 
-const sortByTimestamp = (a: number, b: number) => {
-  return a > b;
-};
-
 interface MessagesProps {
   chatID: string;
 }
@@ -22,7 +18,7 @@ const Messages: React.FC<MessagesProps> = (props) => {
   const messageRef = doc(db, "Chats", props.chatID);
 
   const messageSnapchot: any = useDocumentData(messageRef);
-  const messages = messageSnapchot[0]?.messages.sort(sortByTimestamp);
+  const messages = messageSnapchot[0]?.messages;
 
   useEffect(() => {
     if (dummy.current) {

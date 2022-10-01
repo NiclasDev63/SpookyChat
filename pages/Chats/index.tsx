@@ -28,7 +28,7 @@ const Chats = () => {
       username !== null &&
       currentContact.contactName !== ""
     ) {
-      await sendMessage(username?.username, message, currentContact.chatID);
+      await sendMessage(username?.username,  message, currentContact.chatID);
       setMessage("");
     }
   };

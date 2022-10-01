@@ -20,6 +20,7 @@ const addMessage = async (req: NextApiRequest, res: NextApiResponse) => {
       lastMessage: msgObj,
     });
 
+    
     res.status(200).json({ message: "Message added" });
   } else {
     res.status(400).json({ message: "Invalid request" });

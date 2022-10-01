@@ -26,13 +26,14 @@ const addContact = async (req: NextApiRequest, res: NextApiResponse) => {
     if (index === -1) {
       // Add contact to user
       await updateDoc(docRef1, {
-        Contacts: arrayUnion({ name: contactToAdd, chatID }),
+        Contacts: arrayUnion({ name: contactToAdd, chatID}),
       });
 
       // Add user to contact
       const docRef2 = doc(db, "Member", contactToAdd);
       await updateDoc(docRef2, {
-        Contacts: arrayUnion({ name: username, chatID }),
+        Contacts: arrayUnion({ name: username, chatID
+        }),
       });
 
       // Creates chat between user and contact
