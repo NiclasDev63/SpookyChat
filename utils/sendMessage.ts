@@ -1,6 +1,6 @@
 const sendMessage = async (
-  message: string,
   username: string,
+  message: string,
   contactName: string
 ) => {
   return await fetch("/api/addMessage", {
@@ -10,9 +10,8 @@ const sendMessage = async (
     },
     body: JSON.stringify({
       username: username,
-      contact: contactName,
       message: message,
-      received: false,
+      chatID: contactName,
     }),
   });
 };

@@ -23,7 +23,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     checkUsername();
   }, [user?.username]);
 
-  const isUsername: string | null = localStorage.getItem("username");
+  const isUsername: string | undefined = user?.username
 
   useEffect(() => {
     if (isUsername) {
@@ -32,6 +32,8 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
   }, [isUsername]);
 
   useEffect(() => {
+    // console.log("userNameExists:", userNameExists)
+    // console.log("isUserNameSet:", isUserNameSet)
     setUserIsAuthenticated(userNameExists && isUserNameSet);
   }, [userNameExists, isUserNameSet]);
 

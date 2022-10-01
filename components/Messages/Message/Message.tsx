@@ -3,11 +3,12 @@ import styles from "./Message.module.css";
 export interface MessageProps {
   message: string;
   timestamp: string;
-  received: boolean;
+  sender: string;
+  username: string;
 }
 
 const Message: React.FC<MessageProps> = (props) => {
-  const classN = props.received
+  const classN = props.sender !== props.username
     ? `${styles.message} ${styles.received}`
     : `${styles.message} ${styles.send}`;
 

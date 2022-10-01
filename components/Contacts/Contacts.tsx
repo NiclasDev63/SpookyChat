@@ -1,51 +1,34 @@
 import Contact from "./Contact/Contact";
-import { collection } from "firebase/firestore";
+import { doc} from "firebase/firestore";
 import db from "../../utils/firebase/Firebase";
-import { useCollection } from "react-firebase-hooks/firestore";
+import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 
 interface ContactsProps {
-  getContactName: (contactName: string) => void;
+  getContactName: (contactName: {name: string, chatID: string}) => void;
 }
 
 const Contacts: React.FC<ContactsProps> = (props) => {
   const username = useContext(UserContext);
-  
-  
+
   const user = username === null ? "Anonymous" : username.username;
-  
-  const getContactName = (contactName: string) => {
-    props.getContactName(contactName);
+
+  const getContactName = (contact: {name: string, chatID: string}) => {
+    props.getContactName(contact);
   };
-  
-  const contactRef = collection(db, "Member", user, "Contacts");
+
+  const contactRef = doc(db, "Member", user);
   const [contactSnapshot, contactLoading, contactError] =
-  useCollection(contactRef);
-  if(contactSnapshot){
+  useDocumentData(contactRef);
 
-    const allContacts: string[] | undefined = contactSnapshot?.docs.map(
-      (doc) => doc.id
-      );
-      
-
-      return (
-        <>
-          {allContacts.map((contact, index) => (
-            <Contact
-              key={contact}
-              getContactName={getContactName}
-              name={contact}
-            />
-          ))}
-        </>
-      );
-    } else {
-    return <></>
-  }
-
-
+  return (
+    <>
+      {contactSnapshot?.Contacts.map((contact: any) => (
+        <Contact key={contact.name} chatID={contact.chatID} getContactName={getContactName} name={contact.name} />
+      ))}
+    </>
+  );
 };
 
 export default Contacts;
-

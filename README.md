@@ -36,21 +36,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## TODO
 
-- Only start conversation with existing users
+- add notification or blue point on the tab when a new message is received
 
-- Add functionality to start a conversation with a new user
+- move the contact to the top when you get a new message
 
-
-- correctly delete all collections by user when loggin out (nodejs)
-
-- Add functionality to logout a button
+- delete use acc when he leaves the page without logging out
 
 - Add Hash for authentification
 
 - Add Sections with warn sign (for example: "Logout to delete your user and messages")
 
 - (Change Design of Chat)
-
-- uncommend the code in line 33-35 in pages/index.tsx
 
 - add end to end encryption

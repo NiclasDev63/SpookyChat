@@ -3,7 +3,7 @@ import checkForUsername from "../../utils/CheckForUsername";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { setDoc, doc, serverTimestamp, getDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 
 export const addMember = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
@@ -15,7 +15,8 @@ export const addMember = async (req: NextApiRequest, res: NextApiResponse) => {
     } else {
       await setDoc(doc(db, "Member", username), {
         username: username,
-        accCreated: serverTimestamp(),
+        accCreated: Date.now(),
+        Contacts: [],
       });
       res.status(200).json({ message: "Member added" });
     }

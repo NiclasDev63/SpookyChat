@@ -11,19 +11,28 @@ const UserContext = createContext<UserContextType | null>(null);
 export const UserContextProvider = (props: any) => {
   const [username, setUsername] = useState("");
 
-  const logoutHandler = () => {
-    localStorage.removeItem("username");
+  const logoutHandler = async () => {
+    await fetch("/api/deleteMember", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+      }),
+    });
     setUsername("");
+    localStorage.removeItem("username");
   };
 
-  const loginHandler = (username: string) => {
-    fetch("http://localhost:3000/api/createNewMember", {
+  const loginHandler = async (username: string) => {
+    await fetch("http://localhost:3000/api/createNewMember", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username }),
-    }).then((res) => res.json());
+    });
     setUsername(username);
     localStorage.setItem("username", username);
   };

@@ -1,20 +1,30 @@
 
 .container {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    flex-direction: column;
     background-color: #364fc7;
     height: 100vh;
+    text-align: center;
+}
+
+.user {
+    font-size: 2.4rem;
+    padding-top: 2rem;
 }
 
 .chatContainer {
     position: relative;
     display: flex;
     /* background-color: #DDDFE7; */
-    margin: 0 auto;
+    /* margin: 0 auto;
     flex-shrink: 1;
     flex-grow: 1;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
     width: 140rem;
-    height: 90rem;
+    height: 80rem;
     border-radius: 1rem;
 }
 
@@ -34,6 +44,18 @@
 
 .logout:hover{
     scale: none;
+}
+
+.addContactSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userNotFound {
+    color: red;
+    font-size: 1.4rem;
 }
 
 .newChat {

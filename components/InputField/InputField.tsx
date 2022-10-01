@@ -6,6 +6,7 @@ interface InputFieldProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   style?: React.CSSProperties;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const InputField: React.FC<InputFieldProps> = (props) => {

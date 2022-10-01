@@ -30,9 +30,9 @@ const HomePage = () => {
 
   const onClickHandler = () => {
     username?.onLogin(name);
-    // if (usernameExists) {
-    //   return;
-    // }
+    if (usernameExists) {
+      return;
+    }
     router.push("/Chats");
     setName("");
   };
