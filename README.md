@@ -49,3 +49,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - (Change Design of Chat)
 
 - add end to end encryption
+
+- remove redundancy / refactor code
