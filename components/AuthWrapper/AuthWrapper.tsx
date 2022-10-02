@@ -42,7 +42,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
       const interval = setInterval(() => {
         setLoadingCounter((prev) => prev + 1);
       }, 1000);
-      if (loadingCoutner === 6) {
+      if (loadingCoutner === 10) {
         setIsLoading(false);
         return () => clearInterval(interval);
       }
@@ -50,7 +50,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
   }, [isLoading]);
 
   if (!userIsAuthenticated) {
-    if (loadingCoutner > 6) {
+    if (loadingCoutner > 10) {
       return (
         <div className={styles.container}>
             <div className={styles.loading}></div>
