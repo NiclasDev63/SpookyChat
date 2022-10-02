@@ -14,6 +14,8 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     useState<boolean>(false);
   const user = useContext(UserContext);
   const [isUserNameSet, setIsUserNameSet] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loadingCoutner, setLoadingCounter] = useState<number>(0);
 
   useEffect(() => {
     const checkUsername = async () => {
@@ -23,12 +25,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     checkUsername();
   }, [user?.username]);
 
-  let isUsername: string | null = null;
-  try {
-    isUsername = localStorage.getItem("username");
-  } catch (error) {
-    console.log(error);
-  }
+  const isUsername: string | undefined = user?.username;
 
   useEffect(() => {
     if (isUsername) {
@@ -40,18 +37,35 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     setUserIsAuthenticated(userNameExists && isUserNameSet);
   }, [userNameExists, isUserNameSet]);
 
-  if (!userIsAuthenticated && isUserNameSet) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <h1 className={styles.text}>Not Authenticated</h1>
-          <Link href="/">
-            <a className={styles.link}>Login here</a>
-          </Link>
+  useEffect(() => {
+    if (isLoading) {
+      const interval = setInterval(() => {
+        setLoadingCounter((prev) => prev + 1);
+      }, 1000);
+      if (loadingCoutner === 6) {
+        setIsLoading(false);
+        return () => clearInterval(interval);
+      }
+    }
+  }, [isLoading]);
+
+  if (!userIsAuthenticated) {
+    if (loadingCoutner > 6) {
+      return (
+        <div className={styles.container}>
+            <div className={styles.loading}></div>
+          <div className={styles.content}>
+            <h1 className={styles.text}>
+              If Loading takes too long, please make sure that you are logged in
+              correctly
+            </h1>
+            <Link href="/">
+              <a className={styles.link}>Login here</a>
+            </Link>
+          </div>
         </div>
-      </div>
-    );
-  } else if (!userIsAuthenticated && !isUserNameSet) {
+      );
+    }
     return (
       <div className={styles.container}>
         <div className={styles.loading}></div>

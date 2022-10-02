@@ -4,24 +4,26 @@
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin: 0 auto;
     width: 80rem;
     text-align: center;
     position: relative;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
 }
 
 .text {
-    font-size: 6.4rem;
+    font-size: 3.6rem;
     color: red;
 }
 
 .link {
     text-decoration: none;
-    font-size: 3.6rem;
+    font-size: 2.4rem;
 }
-
 
 .loading {
     position: relative;
