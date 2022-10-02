@@ -2,7 +2,7 @@ import Contact from "./Contact/Contact";
 import { doc } from "firebase/firestore";
 import db from "../../utils/firebase/Firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { useContext, useState } from "react";
+import { useContext, useState, useCallback } from "react";
 import UserContext from "../../context/UserContext";
 
 interface ContactsProps {
@@ -16,9 +16,6 @@ const Contacts: React.FC<ContactsProps> = (props) => {
     name: string;
     chatID: string;
   }>({ name: "", chatID: "" });
-  const [contacts, setContacts] = useState<{ name: string; chatID: string }[]>(
-    []
-  );
 
   const user = username === null ? "Anonymous" : username.username;
 
@@ -27,9 +24,9 @@ const Contacts: React.FC<ContactsProps> = (props) => {
     props.getContactName(contact);
   };
 
-  const getNewMessage = (contact: { name: string; chatID: string }) => {
+  const getNewMessage = useCallback((contact: { name: string; chatID: string }) => {
     setnewcontactFrom(contact);
-  };
+  }, []);
 
   const contactRef = doc(db, "Member", user);
   const [contactSnapshot, contactLoading, contactError] =
