@@ -23,7 +23,12 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     checkUsername();
   }, [user?.username]);
 
-  const isUsername: string | undefined = user?.username;
+  let isUsername: string | null = null;
+  try {
+    isUsername = localStorage.getItem("username");
+  } catch (error) {
+    console.log(error);
+  }
 
   useEffect(() => {
     if (isUsername) {
@@ -35,7 +40,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     setUserIsAuthenticated(userNameExists && isUserNameSet);
   }, [userNameExists, isUserNameSet]);
 
-  if (!userIsAuthenticated && isUserNameSet === true) {
+  if (!userIsAuthenticated && isUserNameSet) {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
@@ -46,10 +51,10 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
         </div>
       </div>
     );
-  } else if(!userIsAuthenticated && isUserNameSet === false){
+  } else if (!userIsAuthenticated && !isUserNameSet) {
     return (
       <div className={styles.container}>
-          <div className={styles.loading}></div>
+        <div className={styles.loading}></div>
       </div>
     );
   }
