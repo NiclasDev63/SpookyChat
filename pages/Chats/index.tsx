@@ -9,6 +9,7 @@ import Contacts from "../../components/Contacts/Contacts";
 import sendMessage from "../../utils/sendMessage";
 import checkForUsername from "../../utils/CheckForUsername";
 import { useRouter } from "next/router";
+import { AiFillLock } from "react-icons/ai";
 
 const Chats = () => {
   const username = useContext(UserContext);
@@ -28,7 +29,7 @@ const Chats = () => {
       username !== null &&
       currentContact.contactName !== ""
     ) {
-      await sendMessage(username?.username,  message, currentContact.chatID);
+      await sendMessage(username?.username, message, currentContact.chatID);
       setMessage("");
     }
   };
@@ -83,14 +84,24 @@ const Chats = () => {
   return (
     <AuthWrapper>
       <div className={styles.container}>
-        <h1 className={styles.user}>Currently logged in as: {username?.username}</h1>
+        <h1 className={styles.user}>
+          Currently logged in as: {username?.username}
+        </h1>
         <div className={styles.chatContainer}>
           <div className={styles.leftSection}>
-            <Button
-              text="Logout"
-              className={styles.logout}
-              onClick={logoutHandler}
-            />
+            <div className={styles.actionSection}>
+              <div className={styles.logoutSection}>
+                <Button
+                  text="Logout"
+                  className={styles.logout}
+                  onClick={logoutHandler}
+                />
+                <p className={styles.logoutText}>
+                  It`s important to logout in order to DELETE your account and
+                  messages
+                </p>
+              </div>
+            </div>
             <div className={styles.addContactSection}>
               <div className={styles.newChat}>
                 <InputField
@@ -98,6 +109,11 @@ const Chats = () => {
                   className={styles.searchField}
                   onChange={(e) => setAddContact(e.target.value)}
                   value={addContact}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      addContactHandler();
+                    }
+                  }}
                 />
                 <Button
                   text="Start New Conversation"
@@ -115,43 +131,63 @@ const Chats = () => {
               <Contacts getContactName={getContactName} />
             </div>
           </div>
-          <div className={styles.chat}>
-            <div className={styles.chatHeader}>
-              <div className={styles.contact}>
-                <div className={styles.picture}></div>
-                <div className={styles.info}>
-                  <h1 className={styles.contactName}>
-                    {currentContact.contactName}
-                  </h1>
+          {currentContact.contactName ? (
+            <div className={styles.chat}>
+              <div className={styles.chatHeader}>
+                <div className={styles.contact}>
+                  <div className={styles.picture}></div>
+                  <div className={styles.info}>
+                    <h1 className={styles.contactName}>
+                      {currentContact.contactName}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.chatBody}>
+                {showMessages && <Messages chatID={currentContact.chatID} />}
+              </div>
+              <div className={styles.inputSection}>
+                <InputField
+                  placeholder="Write a message"
+                  className={styles.messageInput}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      messageSendHandler();
+                    }
+                  }}
+                />
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  className={styles.sendMessage}
+                  onClick={messageSendHandler}
+                >
+                  <path d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
+                </svg>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.chat}>
+              <div className={styles.welcomeSection}>
+                <div className={styles.welcomeBox}>
+                  <h1 className={styles.title}>Welcome to Spooky Chat</h1>
+                  <p className={styles.text}>
+                    To start a conversation, search for a user and click on the
+                    "Start New Conversation" button.
+                  </p>
+                </div>
+                <div className={styles.encryptionTextBox}>
+                  <AiFillLock className={styles.lock} />
+                  <span className={styles.encryptionText}>
+                    End-to-End Encrypted
+                  </span>
                 </div>
               </div>
             </div>
-            <div className={styles.chatBody}>
-              {showMessages && <Messages chatID={currentContact.chatID} />}
-            </div>
-            <div className={styles.inputSection}>
-              <InputField
-                placeholder="Write a message"
-                className={styles.messageInput}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={(e) => {
-                  if (e.key === "Enter") {
-                    messageSendHandler();
-                  }
-                }}
-              />
-              <svg
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                className={styles.sendMessage}
-                onClick={messageSendHandler}
-              >
-                <path d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
-              </svg>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </AuthWrapper>

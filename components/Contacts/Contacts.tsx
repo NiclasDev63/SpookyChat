@@ -2,7 +2,7 @@ import Contact from "./Contact/Contact";
 import { doc } from "firebase/firestore";
 import db from "../../utils/firebase/Firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
 
 interface ContactsProps {

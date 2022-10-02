@@ -40,14 +40,21 @@
 }
 
 .message {
-    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 }
 
 .lastMessage {
     font-size: 1.4rem;
+    display: inline-block;
+    max-width: 20rem;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    text-align: left;
 }
 
 .sendIcon {

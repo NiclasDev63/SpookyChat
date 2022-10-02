@@ -5,6 +5,7 @@
     border-radius: 1rem;
     border-top-left-radius: 0;
     padding: 1rem;
+    text-align: left;
 }
 
 .timestamp {

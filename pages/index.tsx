@@ -37,10 +37,6 @@ const HomePage = () => {
     setName("");
   };
 
-  const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.hero}>
@@ -53,8 +49,13 @@ const HomePage = () => {
         <InputField
           className={styles.inputFied}
           placeholder="Username"
-          onChange={handler}
+          onChange={(e) => setName(e.target.value)}
           value={name}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              onClickHandler();
+            }
+          }}
         />
         {usernameExists && <span className={styles.error}>
           The username is already taken, please choose another one
@@ -63,6 +64,7 @@ const HomePage = () => {
           text="Join Chat"
           className={styles.button}
           onClick={onClickHandler}
+          
         />
       </div>
     </div>
