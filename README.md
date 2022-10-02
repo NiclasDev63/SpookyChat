@@ -36,16 +36,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## TODO
 
-- move the contact to the top when you get a new message
-
-- delete use acc when he leaves the page without logging out
-
 - Add Hash for authentification
 
-- Add Sections with warn sign (for example: "Logout to delete your user and messages")
-
-- (Change Design of Chat)
-
 - add end to end encryption
+
+- increase performance with React.memo and useCallback
 
 - remove redundancy / refactor code
