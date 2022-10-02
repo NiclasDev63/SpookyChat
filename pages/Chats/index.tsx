@@ -9,7 +9,6 @@ import Contacts from "../../components/Contacts/Contacts";
 import sendMessage from "../../utils/sendMessage";
 import checkForUsername from "../../utils/CheckForUsername";
 import { useRouter } from "next/router";
-import { AiFillLock } from "react-icons/ai";
 
 const Chats = () => {
   const username = useContext(UserContext);

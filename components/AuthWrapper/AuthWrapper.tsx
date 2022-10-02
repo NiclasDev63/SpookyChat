@@ -35,7 +35,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     setUserIsAuthenticated(userNameExists && isUserNameSet);
   }, [userNameExists, isUserNameSet]);
 
-  if (!userIsAuthenticated) {
+  if (!userIsAuthenticated && isUserNameSet === true) {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
@@ -44,6 +44,12 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
             <a className={styles.link}>Login here</a>
           </Link>
         </div>
+      </div>
+    );
+  } else if(!userIsAuthenticated && isUserNameSet === false){
+    return (
+      <div className={styles.container}>
+          <div className={styles.loading}></div>
       </div>
     );
   }
