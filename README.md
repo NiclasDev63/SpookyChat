@@ -1,10 +1,23 @@
 # Spooky Chat
+Spooky Chat is a chat platform that is completely anonymous.
+You don't have to provide an email address or any other information.
+The chat platform is designed so that no data is stored and you always start from "zero" to guarantee full anonymity.
+For this reason, all messages, as well as the user himself are deleted when logging out.
+Die neuste Version der Website ist erreichbar unter: https://spooky-chat.vercel.app/
+
+Login Page:
+![image](https://user-images.githubusercontent.com/83044113/193466143-4fa7eea2-c78a-4046-a8ff-1062835c2ff1.png)
+
+
+Chat Page:
+![image](https://user-images.githubusercontent.com/83044113/193466651-31473d29-8e8b-4c16-a40d-5d80961c3ae4.png)
+
 
 ## TODO
 
 - Add Hash for additional authentification
 
-- add end to end encryption
+- add End to End encryption
 
 - increase performance (use e.g. React.memo and useCallback)
 
