@@ -41,7 +41,7 @@ const Contact: React.FC<ContactProps> = (props) => {
       setNewMessage(true);
     }
     props.getNewMessage({ name: props.name, chatID: props.chatID });
-  }, [contactSnapshot?.lastMessage]);
+  }, [contactSnapshot?.lastMessage, props.getNewMessage]);
 
   const lastMessage = contactSnapshot?.lastMessage;
   const timestamp =

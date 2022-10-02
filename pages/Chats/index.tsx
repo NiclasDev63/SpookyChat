@@ -179,12 +179,6 @@ const Chats = () => {
                     "Start New Conversation" button.
                   </p>
                 </div>
-                <div className={styles.encryptionTextBox}>
-                  <AiFillLock className={styles.lock} />
-                  <span className={styles.encryptionText}>
-                    End-to-End Encrypted
-                  </span>
-                </div>
               </div>
             </div>
           )}
