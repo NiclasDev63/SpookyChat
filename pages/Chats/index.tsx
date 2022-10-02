@@ -175,8 +175,8 @@ const Chats = () => {
                 <div className={styles.welcomeBox}>
                   <h1 className={styles.title}>Welcome to Spooky Chat</h1>
                   <p className={styles.text}>
-                    To start a conversation, search for a user and click on the
-                    "Start New Conversation" button.
+                    To start a conversation, search for a user and click on the {" "}
+                    {'"Start New Conversation"'} button.
                   </p>
                 </div>
               </div>

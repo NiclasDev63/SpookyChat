@@ -53,6 +53,11 @@
     color: red;
 }
 
+.logout {
+    background-color: #581f86;
+    color: #DDDFE7
+}
+
 .logout:hover {
     scale: none;
 }
@@ -82,6 +87,8 @@
 
 .searchButton {
     height: 4rem;
+    background-color: #581f86;
+    color: #DDDFE7
 }
 
 .searchButton:hover {
