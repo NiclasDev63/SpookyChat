@@ -36,8 +36,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## TODO
 
-- add notification or blue point on the tab when a new message is received
-
 - move the contact to the top when you get a new message
 
 - delete use acc when he leaves the page without logging out

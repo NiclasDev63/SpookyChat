@@ -26,7 +26,7 @@ export const UserContextProvider = (props: any) => {
   };
 
   const loginHandler = async (username: string) => {
-    await fetch("http://localhost:3000/api/createNewMember", {
+    await fetch("/api/createNewMember", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

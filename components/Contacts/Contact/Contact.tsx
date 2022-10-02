@@ -18,6 +18,7 @@ export interface ContactProps {
   chatID: string;
   currentUser: string
   getContactName: (contactName: { name: string; chatID: string }) => void;
+  getNewMessage: (contactName: { name: string; chatID: string }) => void;
 }
 
 const Contact: React.FC<ContactProps> = (props) => {
@@ -39,6 +40,7 @@ const Contact: React.FC<ContactProps> = (props) => {
     if (contactSnapshot?.lastMessage.sender !== user && props.currentUser !== props.name) {
       setNewMessage(true);
     }
+    props.getNewMessage({ name: props.name, chatID: props.chatID });
   }, [contactSnapshot?.lastMessage]);
 
   const lastMessage = contactSnapshot?.lastMessage;
