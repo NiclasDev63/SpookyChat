@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDwxo-pUgfYjeFv3Fh_hJrN-M4pEd4jXZE",
-  authDomain: "niclas-test-app.firebaseapp.com",
+  apiKey: "process.env.APIKEY",
+  authDomain: "process.env.AUTHDOMAIN",
   databaseURL:
-    "https://niclas-test-app-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "niclas-test-app",
-  storageBucket: "niclas-test-app.appspot.com",
-  messagingSenderId: "748026565388",
-  appId: "1:748026565388:web:94ca4fddce1c075388af29",
+    "process.env.DATABASEURL",
+  projectId: "process.env.PROJECTID",
+  storageBucket: "process.env.STORAGEBUCKET",
+  messagingSenderId: "process.env.MESSAGINGSENDERID",
+  appId: "process.env.APPID",
 };
 
 const app = initializeApp(firebaseConfig);
