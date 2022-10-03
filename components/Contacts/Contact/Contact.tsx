@@ -24,33 +24,31 @@ export interface ContactProps {
 const Contact: React.FC<ContactProps> = (props) => {
   const username = useContext(UserContext);
   const [newMessage, setNewMessage] = useState<boolean>(false);
+  const { name, chatID, currentUser, getContactName, getNewMessage } = props;
 
   const onClickHandler = () => {
     setNewMessage(false);
-    props.getContactName({ name: props.name, chatID: props.chatID });
+    getContactName({ name: name, chatID: chatID });
   };
 
   const user = username === null ? "Anonymous" : username.username;
 
-  const chatRef = doc(db, "Chats", props.chatID);
+  const chatRef = doc(db, "Chats", chatID);
   const [contactSnapshot, contactLoading, contactError] =
     useDocumentData(chatRef);
 
   useEffect(() => {
-    if (
-      contactSnapshot?.lastMessage.sender !== user &&
-      props.currentUser !== props.name
-    ) {
+    if (contactSnapshot?.lastMessage.sender !== user && currentUser !== name) {
       setNewMessage(true);
     }
-    props.getNewMessage({ name: props.name, chatID: props.chatID });
+    getNewMessage({ name, chatID });
   }, [
     contactSnapshot?.lastMessage,
     user,
-    props.getNewMessage,
-    props.name,
-    props.chatID,
-    props.currentUser,
+    name,
+    chatID,
+    currentUser,
+    getNewMessage,
   ]);
 
   const lastMessage = contactSnapshot?.lastMessage;
@@ -63,7 +61,7 @@ const Contact: React.FC<ContactProps> = (props) => {
           <div className={styles.picture}></div>
           <div className={styles.info}>
             <div className={styles.header}>
-              <h1 className={styles.contactName}>{props.name}</h1>
+              <h1 className={styles.contactName}>{name}</h1>
               <span className={styles.timestamp}>{timestamp}</span>
             </div>
             <div className={styles.message}>
