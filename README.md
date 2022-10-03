@@ -15,6 +15,10 @@ Chat Page:
 ![image](https://user-images.githubusercontent.com/83044113/193466651-31473d29-8e8b-4c16-a40d-5d80961c3ae4.png)
 
 
+## Important
+The chat is only used as a training project and is neither end to end encrypted nor otherwise secured.
+
+
 ## TODO
 
 - Add Hash for additional authentification
