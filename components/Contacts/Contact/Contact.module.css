@@ -70,3 +70,41 @@
     height: 2rem;
 }
 
+@media screen and (max-width: 660px) {
+    .contact {
+        padding: 0.5rem;
+    }
+
+    .picture {
+        min-width: 3rem;
+        min-height: 3rem;
+        max-width: 3rem;
+        max-height: 3rem;
+    }
+
+    .contactName {
+        font-size: 1.4rem;
+    }
+
+    .timestamp {
+        font-size: 1rem;
+    }
+
+    .message {
+        gap: 0.2rem;
+    }
+
+    .lastMessage {
+        font-size: 1.2rem;
+        max-width: 12rem;
+    }
+
+    .sendIcon {
+        font-size: 1.2rem;
+    }
+
+    .newMessage {
+        width: 1rem;
+        height: 1rem;
+    }
+}

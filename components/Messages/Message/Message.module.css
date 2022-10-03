@@ -27,3 +27,15 @@
     font-size: 2.4rem;
     word-break: break-all;
 }
+
+@media screen and (max-width: 1000px) {
+    .content {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .content {
+        font-size: 1.2rem;
+    }
+}

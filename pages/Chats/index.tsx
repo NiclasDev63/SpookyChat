@@ -21,6 +21,25 @@ const Chats = () => {
   const [addContact, setAddContact] = useState<string>("");
   const [contacExists, setContactExists] = useState<boolean>(true);
   const router = useRouter();
+  const [selfChat, setSelfChat] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!contacExists) {
+      const interval = setInterval(() => {
+        setContactExists(true);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [contacExists]);
+
+  useEffect(() => {
+    if (selfChat) {
+      const interval = setInterval(() => {
+        setSelfChat(false);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [selfChat]);
 
   const messageSendHandler = async () => {
     if (
@@ -34,7 +53,11 @@ const Chats = () => {
   };
 
   const addContactHandler = async () => {
-    if (addContact !== "" && username !== null) {
+    if (
+      addContact !== "" &&
+      username !== null &&
+      username.username != addContact
+    ) {
       const checkContactName = await checkForUsername(addContact);
       if (checkContactName) {
         await fetch("/api/addContact", {
@@ -52,6 +75,8 @@ const Chats = () => {
       } else {
         setContactExists(false);
       }
+    } else {
+      setSelfChat(true);
     }
   };
 
@@ -122,7 +147,12 @@ const Chats = () => {
               </div>
               {!contacExists && (
                 <span className={styles.userNotFound}>
-                  Contact does not exists
+                  User does not exists
+                </span>
+              )}
+              {selfChat && (
+                <span className={styles.userNotFound}>
+                  You can`t chat with yourself
                 </span>
               )}
             </div>
@@ -174,7 +204,7 @@ const Chats = () => {
                 <div className={styles.welcomeBox}>
                   <h1 className={styles.title}>Welcome to Spooky Chat</h1>
                   <p className={styles.text}>
-                    To start a conversation, search for a user and click on the {" "}
+                    To start a conversation, search for a user and click on the{" "}
                     {'"Start New Conversation"'} button.
                   </p>
                 </div>

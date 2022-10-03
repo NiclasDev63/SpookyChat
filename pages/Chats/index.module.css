@@ -239,3 +239,146 @@
 .text {
     font-size: 2.4rem;
 }
+
+
+@media screen and (max-width: 1400px) {
+    .chatContainer {
+        max-width: 100rem;
+    }
+
+    .leftSection {
+        min-width: 20rem;
+    }
+
+    .logoutSection {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .logout {
+        width: 100%;
+    }
+
+    .newChat {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .searchField {
+        width: 100%;
+    }
+
+    .searchButton {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .chatContainer {
+        max-width: 65rem;
+    }
+
+
+    .chatHeader .contact {
+        justify-content: center;
+    }
+
+}
+
+
+@media screen and (max-width: 660px) {
+
+    .container {
+        gap: 1rem;
+        height: 110vh;
+    }
+
+    .user {
+        font-size: 1.8rem;
+        padding-top: 1rem;
+    }
+
+    .chatContainer {
+        flex-direction: column;
+        max-width: 35rem;
+    }
+
+    .leftSection {
+        gap: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+        max-height: 25rem;
+        min-height: 25rem;
+    }
+
+    .logoutSection {
+        width: 100%;
+        margin-top: 0rem;
+        flex-direction: row;
+    }
+
+    .logoutText {
+        font-size: 1.2rem;
+    }
+
+    .newChat {
+        flex-direction: row;
+    }
+
+    .userNotFound {
+        font-size: 1.2rem;
+    }
+
+    .chatHeader {
+        border-top: 1px solid #162050;
+        border-top-right-radius: 0;
+        height: 5rem;
+        border-left: none;
+    }
+
+    .chatHeader .contact {
+        height: 5rem;
+        justify-content: flex-start;
+    }
+
+    .chatHeader .picture {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .chatHeader .contactName {
+        font-size: 1.4rem;
+    }
+
+    .chatBody {
+        max-height: 40rem;
+        min-height: 40rem;
+    }
+
+    .inputSection {
+        border-left: none;
+        border-bottom-left-radius: 1rem;
+        height: 6rem;
+    }
+
+    .messageInput {
+        font-size: 1.2rem;
+        height: 4rem;
+    }
+
+    .sendMessage {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .welcomeSection {
+        border-left: none;
+        border-top: 1px solid #162050;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        max-height: 51rem;
+        min-height: 51rem;
+    }
+
+}

@@ -19,18 +19,19 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const timout = setTimeout(() => {
-    const checkUsername = async () => {
-      const exists = await checkForUsername(name);
-      setUsernameExists(exists);
-    };
-    checkUsername();}, 500);
-    return () => clearTimeout(timout);
-  }, [name]);
-
-  const onClickHandler = () => {
-    username?.onLogin(name);
     if (usernameExists) {
+      const interval = setInterval(() => {
+        setUsernameExists(false);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [usernameExists]);
+
+  const onClickHandler = async () => {
+    username?.onLogin(name);
+    const exists = await checkForUsername(name);
+    if (exists) {
+      setUsernameExists(true);
       return;
     }
     router.push("/Chats");
