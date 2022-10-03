@@ -16,7 +16,7 @@ export interface ContactPropsOutside {
 export interface ContactProps {
   name: string;
   chatID: string;
-  currentUser: string
+  currentUser: string;
   getContactName: (contactName: { name: string; chatID: string }) => void;
   getNewMessage: (contactName: { name: string; chatID: string }) => void;
 }
@@ -24,7 +24,6 @@ export interface ContactProps {
 const Contact: React.FC<ContactProps> = (props) => {
   const username = useContext(UserContext);
   const [newMessage, setNewMessage] = useState<boolean>(false);
-  const { getNewMessage } = props;
 
   const onClickHandler = () => {
     setNewMessage(false);
@@ -38,11 +37,19 @@ const Contact: React.FC<ContactProps> = (props) => {
     useDocumentData(chatRef);
 
   useEffect(() => {
-    if (contactSnapshot?.lastMessage.sender !== user && props.currentUser !== props.name) {
+    if (
+      contactSnapshot?.lastMessage.sender !== user &&
+      props.currentUser !== props.name
+    ) {
       setNewMessage(true);
     }
-    getNewMessage({ name: props.name, chatID: props.chatID });
-  }, [contactSnapshot?.lastMessage, getNewMessage]);
+    props.getNewMessage({ name: props.name, chatID: props.chatID });
+  }, [
+    contactSnapshot?.lastMessage,
+    props.getNewMessage,
+    props.name,
+    props.chatID,
+  ]);
 
   const lastMessage = contactSnapshot?.lastMessage;
   const timestamp =
