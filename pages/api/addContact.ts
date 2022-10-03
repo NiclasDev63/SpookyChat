@@ -14,7 +14,7 @@ const addContact = async (req: NextApiRequest, res: NextApiResponse) => {
     const username: string = req.body.username;
     const contactToAdd: string = req.body.contact;
     const chatID: string = sha256(username + contactToAdd);
-    const message: string = `${username} started a chat`;
+    const message: string = `"${username}" started a chat`;
     const timestamp: number = Date.now();
 
     const docRef1 = doc(db, "Member", username);

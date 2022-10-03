@@ -52,6 +52,7 @@ const HomePage = () => {
           placeholder="Username"
           onChange={(e) => setName(e.target.value)}
           value={name}
+          maxLength={16}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               onClickHandler();

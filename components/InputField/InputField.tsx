@@ -7,6 +7,7 @@ interface InputFieldProps {
   value?: string;
   style?: React.CSSProperties;
   onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  maxLength?: number;
 }
 
 const InputField: React.FC<InputFieldProps> = (props) => {
