@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import UserContext from "../../context/UserContext";
 import styles from "./AuthWrapper.module.css";
 import Link from "next/link";
+import Head from "next/head";
 
 interface AuthProps {
   children: React.ReactNode;
@@ -53,7 +54,7 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
     if (loadingConter > 10) {
       return (
         <div className={styles.container}>
-            <div className={styles.loading}></div>
+          <div className={styles.loading}></div>
           <div className={styles.content}>
             <h1 className={styles.text}>
               If Loading takes too long, please make sure that you are logged in
@@ -67,13 +68,25 @@ const AuthWrapper: React.FC<AuthProps> = ({ children }) => {
       );
     }
     return (
-      <div className={styles.container}>
-        <div className={styles.loading}></div>
-      </div>
+      <>
+        <Head>
+          <title>Spooky Chat Loading...</title>
+        </Head>
+        <div className={styles.container}>
+          <div className={styles.loading}></div>
+        </div>
+      </>
     );
   }
 
-  return <>{userIsAuthenticated && children}</>;
+  return (
+    <>
+      <Head>
+        <title>Spooky Chat</title>
+      </Head>
+      {userIsAuthenticated && children}
+    </>
+  );
 };
 
 export default AuthWrapper;
